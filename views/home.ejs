@@ -1,0 +1,21 @@
+<%- include("partials/header"); -%>
+<section class="container">
+  <h1>Home</h1>
+  <p><%= startingContent %></p>
+
+  <h2>Blogs</h2>
+
+  <% posts.slice().reverse().forEach(function(post,i){ %>
+
+  <h3><%=post.title%></h3>
+  <p>
+    <%=`${post.content.substring(0, 100)}...`%>
+    <a href="/posts/<%=post._id%>">Read More</a
+    ><span>&nbsp&nbsp&nbsp&nbsp</span>
+    <a href="/update/<%=post._id%>"><button>Update</button></a>
+    <span>&nbsp&nbsp&nbsp&nbsp</span>
+    <a href="/post-delete/<%=post._id%>"><button>Delete</button></a>
+  </p>
+  <% i++; }) %>
+</section>
+<%- include("partials/footer"); -%>
